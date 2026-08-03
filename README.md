@@ -79,6 +79,11 @@ Validate the plugin with the plugin-creator skill:
 python "C:\Users\lautung\.codex\skills\.system\plugin-creator\scripts\validate_plugin.py" plugins\text-model-vision
 ```
 
+## Credits / 致谢
+
+`plugins/text-model-vision/scripts/vision.js` 改编自 [asuojun/claude-vision-skill](https://github.com/asuojun/claude-vision-skill)。
+`plugins/text-model-vision/scripts/vision.js` is adapted from [asuojun/claude-vision-skill](https://github.com/asuojun/claude-vision-skill).
+
 ## License / 许可
 
 Not specified / 未指定。

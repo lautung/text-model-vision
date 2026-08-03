@@ -37,3 +37,8 @@ Get a key at / 获取 Key：https://bailian.console.aliyun.com/
 
 - 按量计费（千问 Flash 约 0.02 元/次），需要联网 / Pay-per-use (~0.02 CNY/call), network required
 - 图片以 base64 或 URL 形式发送给 DashScope；API Key 只保存在本地，禁止打印或提交 / Images are sent to DashScope as base64 or URL; the API key stays local, never print or commit it
+
+## Credits / 致谢
+
+`scripts/vision.js` 改编自 [asuojun/claude-vision-skill](https://github.com/asuojun/claude-vision-skill)。
+`scripts/vision.js` is adapted from [asuojun/claude-vision-skill](https://github.com/asuojun/claude-vision-skill).

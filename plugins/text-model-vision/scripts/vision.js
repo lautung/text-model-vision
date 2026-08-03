@@ -10,6 +10,9 @@
  *   仅 Node.js 内置模块，无第三方依赖
  *   DASHSCOPE_API_KEY 环境变量 或 本地 .env 文件（脚本内置解析器）
  *
+ * 来源: 本脚本改编自 asuojun/claude-vision-skill
+ *   Source: adapted from https://github.com/asuojun/claude-vision-skill
+ *
  * .env 读取顺序：cwd/.env → 脚本目录/.env → 本机 vision skill 的 scripts/.env
  *   （最后一项用于复用现有密钥配置，密钥不随插件复制）
  */
