@@ -26,6 +26,7 @@ node "<插件根目录>\scripts\vision.js" --url "<图片链接>" "用中文描�
 
 - API Key、模型名、Base URL 读取顺序：进程环境变量 → 当前目录 .env → 脚本所在目录 .env →（作者本机，若存在）旧版 vision skill 的 `C:\Users\lautung\.codex\skills\vision\scripts\.env`
 - 首次配置可把 `scripts/.env.example` 复制为 `scripts/.env` 后填入自己的 Key / To get started, copy `scripts/.env.example` to `scripts/.env` and fill in your key
+- 也可以不建 .env：设置环境变量 `DASHSCOPE_API_KEY`（或 `VISION_API_KEY`）即可，优先级高于 .env；Windows 可用 `setx` 永久设置 / Alternatively set the `DASHSCOPE_API_KEY` (or `VISION_API_KEY`) environment variable instead of creating `.env`; on Windows use `setx` to make it persistent
 - 默认使用千问 Flash 视觉模型，按量计费（约 0.02 元/次）
 - 脚本无第三方依赖（内置 .env 解析），无需 npm install
 

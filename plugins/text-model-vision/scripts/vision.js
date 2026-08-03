@@ -8,7 +8,7 @@
  *
  * 依赖:
  *   仅 Node.js 内置模块，无第三方依赖
- *   DASHSCOPE_API_KEY 环境变量 或 本地 .env 文件（脚本内置解析器）
+ *   DASHSCOPE_API_KEY（或 VISION_API_KEY）环境变量 或 本地 .env 文件（脚本内置解析器）
  *
  * 来源: 本脚本改编自 asuojun/claude-vision-skill
  *   Source: adapted from https://github.com/asuojun/claude-vision-skill
@@ -49,7 +49,7 @@ loadEnvFile(path.resolve(__dirname, ".env"));
 loadEnvFile(path.resolve("C:/Users/lautung/.codex/skills/vision/scripts/.env"));
 
 const BASE_URL = process.env.DASHSCOPE_BASE_URL || "https://dashscope.aliyuncs.com/compatible-mode/v1";
-const API_KEY = process.env.DASHSCOPE_API_KEY || "sk-xxx";
+const API_KEY = process.env.DASHSCOPE_API_KEY || process.env.VISION_API_KEY || "sk-xxx";
 const MODEL = process.env.VISION_MODEL || "xxx";
 
 function parseArgs() {
@@ -111,7 +111,7 @@ function request(payload) {
 
 async function main() {
   if (!API_KEY) {
-    console.error("请设置 DASHSCOPE_API_KEY 环境变量或在 .env 文件中配置。");
+    console.error("请设置 DASHSCOPE_API_KEY（或 VISION_API_KEY）环境变量，或在 .env 文件中配置。");
     console.error("获取 Key: https://bailian.console.aliyun.com/");
     process.exit(1);
   }

@@ -18,10 +18,29 @@ In Codex, just send an image to a text-only model and this skill runs automatica
 The script reads config in this order (first match wins; process env has priority):
 脚本按以下顺序读取配置（先到者生效，进程环境变量优先）：
 
-1. Process environment / 进程环境变量（`DASHSCOPE_API_KEY`、`DASHSCOPE_BASE_URL`、`VISION_MODEL`）
+1. Process environment / 进程环境变量（`DASHSCOPE_API_KEY` 或 `VISION_API_KEY`、`DASHSCOPE_BASE_URL`、`VISION_MODEL`）
 2. `.env` in the current working directory / 当前目录 `.env`
 3. `.env` next to the script / 脚本所在目录 `scripts/.env`
 4. (Author's machine only, if present) legacy vision skill `.env` /（仅作者本机，若存在）旧版 vision skill 的 `.env` 回退：`C:\Users\lautung\.codex\skills\vision\scripts\.env`
+
+### Option B: Environment variable / 方式二：环境变量
+
+Set `DASHSCOPE_API_KEY` (or `VISION_API_KEY`) instead of creating a `.env` file:
+不创建 `.env`，改为设置环境变量（Windows）：
+
+```powershell
+# 当前终端临时生效 / temporary, current shell only
+$env:DASHSCOPE_API_KEY = "sk-..."
+
+# Windows 用户级永久设置 / persistent, user level (run once)
+setx DASHSCOPE_API_KEY "sk-..."
+
+# 或使用插件自带的设置脚本 / or use the bundled helper script
+powershell -ExecutionPolicy Bypass -File "scripts\set-env.ps1" -ApiKey "sk-..."
+```
+
+After `setx`, restart Codex or open a new terminal so the variable takes effect.
+`setx` 之后请重启 Codex 或新开终端使其生效。
 
 Quick start / 快速开始：
 

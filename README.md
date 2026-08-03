@@ -39,6 +39,25 @@ Quick start / 快速开始：
 Copy-Item "plugins\text-model-vision\scripts\.env.example" "plugins\text-model-vision\scripts\.env"
 ```
 
+### Environment variable option / 方式二：环境变量
+
+Prefer an environment variable? Set `DASHSCOPE_API_KEY` (or `VISION_API_KEY`) instead of creating `.env` (Windows):
+也可以不创建 `.env`，改为设置环境变量 `DASHSCOPE_API_KEY`（或 `VISION_API_KEY`，Windows）：
+
+```powershell
+# 当前终端临时生效 / temporary, current shell only
+$env:DASHSCOPE_API_KEY = "sk-..."
+
+# Windows 用户级永久设置 / persistent, user level (run once)
+setx DASHSCOPE_API_KEY "sk-..."
+
+# 或使用插件自带的设置脚本 / or use the bundled helper script
+powershell -ExecutionPolicy Bypass -File "plugins\text-model-vision\scripts\set-env.ps1" -ApiKey "sk-..."
+```
+
+After `setx`, restart Codex or open a new terminal so the variable takes effect.
+`setx` 之后请重启 Codex 或新开终端使其生效。
+
 ```ini
 DASHSCOPE_API_KEY=sk-...
 VISION_MODEL=qwen-vl-plus
