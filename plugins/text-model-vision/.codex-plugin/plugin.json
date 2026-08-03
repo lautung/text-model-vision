@@ -1,6 +1,6 @@
 {
   "name": "text-model-vision",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "为非多模态模型（如 DeepSeek）提供看图能力：通过本地脚本调用千问视觉 API，把图片转成文字描述。",
   "author": {
     "name": "Local developer"
