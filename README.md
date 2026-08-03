@@ -33,13 +33,19 @@ codex plugin add text-model-vision@text-model-vision
 Create `plugins/text-model-vision/scripts/.env` or set process environment variables:
 在 `plugins/text-model-vision/scripts/.env` 中写入配置，或设置进程环境变量：
 
+Quick start / 快速开始：
+
+```powershell
+Copy-Item "plugins\text-model-vision\scripts\.env.example" "plugins\text-model-vision\scripts\.env"
+```
+
 ```ini
 DASHSCOPE_API_KEY=sk-...
 VISION_MODEL=qwen-vl-plus
 DASHSCOPE_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
 ```
 
-Read order / 读取顺序：process env → cwd `.env` → `scripts/.env` → (author's machine only) legacy vision skill `.env` /（仅作者本机）旧版 vision skill 的 `.env`。
+Read order / 读取顺序：process env → cwd `.env` → `scripts/.env` → (author's machine only, if present) legacy vision skill `.env` /（仅作者本机，若存在）旧版 vision skill 的 `.env`。
 Get a key at / 获取 Key：https://bailian.console.aliyun.com/
 
 ## Usage / 使用

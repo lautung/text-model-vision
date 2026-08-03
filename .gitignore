@@ -1,6 +1,8 @@
 # Secrets - never commit API keys
 .env
 **/.env
+# Keep the example tracked
+!**/.env.example
 
 # Node.js
 node_modules/

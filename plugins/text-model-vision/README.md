@@ -21,9 +21,15 @@ The script reads config in this order (first match wins; process env has priorit
 1. Process environment / 进程环境变量（`DASHSCOPE_API_KEY`、`DASHSCOPE_BASE_URL`、`VISION_MODEL`）
 2. `.env` in the current working directory / 当前目录 `.env`
 3. `.env` next to the script / 脚本所在目录 `scripts/.env`
-4. (Author's machine only) legacy vision skill `.env` /（仅作者本机）旧版 vision skill 的 `.env` 回退：`C:\Users\lautung\.codex\skills\vision\scripts\.env`
+4. (Author's machine only, if present) legacy vision skill `.env` /（仅作者本机，若存在）旧版 vision skill 的 `.env` 回退：`C:\Users\lautung\.codex\skills\vision\scripts\.env`
 
-Create `scripts/.env` with your own key / 如需使用自己的 Key，在 `scripts/.env` 中写入：
+Quick start / 快速开始：
+
+```powershell
+Copy-Item "scripts\.env.example" "scripts\.env"
+```
+
+Then fill in your own values / 然后编辑 `scripts/.env` 填入你自己的值：
 
 ```ini
 DASHSCOPE_API_KEY=sk-...

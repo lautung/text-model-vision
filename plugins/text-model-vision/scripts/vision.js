@@ -13,8 +13,8 @@
  * 来源: 本脚本改编自 asuojun/claude-vision-skill
  *   Source: adapted from https://github.com/asuojun/claude-vision-skill
  *
- * .env 读取顺序：cwd/.env → 脚本目录/.env → 本机 vision skill 的 scripts/.env
- *   （最后一项用于复用现有密钥配置，密钥不随插件复制）
+ * .env 读取顺序：cwd/.env → 脚本目录/.env →（若存在）本机旧版 vision skill 的 scripts/.env
+ *   （最后一项用于兼容旧配置，密钥不随插件复制）
  */
 
 const fs = require("fs");
