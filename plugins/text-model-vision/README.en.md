@@ -63,3 +63,7 @@ Get a key at: https://bailian.console.aliyun.com/
 ## Credits
 
 `scripts/vision.js` is adapted from [asuojun/claude-vision-skill](https://github.com/asuojun/claude-vision-skill).
+
+## License
+
+[MIT](../../LICENSE).

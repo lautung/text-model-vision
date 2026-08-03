@@ -109,4 +109,4 @@ python "C:\Users\lautung\.codex\skills\.system\plugin-creator\scripts\validate_p
 
 ## License
 
-Not specified.
+[MIT](LICENSE).

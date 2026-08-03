@@ -63,3 +63,7 @@ DASHSCOPE_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
 ## 致谢
 
 `scripts/vision.js` 改编自 [asuojun/claude-vision-skill](https://github.com/asuojun/claude-vision-skill)。
+
+## 许可
+
+[MIT](../../LICENSE)。
