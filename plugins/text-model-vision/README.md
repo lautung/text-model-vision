@@ -1,0 +1,39 @@
+# text-model-vision
+
+为非多模态模型（如 DeepSeek）补上看图能力的 Codex 插件。
+A Codex plugin that gives text-only models (e.g. DeepSeek) image understanding.
+
+## Usage / 用法
+
+```powershell
+node "<插件根目录>\scripts\vision.js" "<图片路径>" "用中文描述这张图片"
+node "<插件根目录>\scripts\vision.js" --url "<图片链接>" "用中文描述这张图片"
+```
+
+In Codex, just send an image to a text-only model and this skill runs automatically.
+在 Codex 中，直接把图片发给纯文本模型，本技能会自动调用脚本。
+
+## Configuration / 配置
+
+The script reads config in this order (first match wins; process env has priority):
+脚本按以下顺序读取配置（先到者生效，进程环境变量优先）：
+
+1. Process environment / 进程环境变量（`DASHSCOPE_API_KEY`、`DASHSCOPE_BASE_URL`、`VISION_MODEL`）
+2. `.env` in the current working directory / 当前目录 `.env`
+3. `.env` next to the script / 脚本所在目录 `scripts/.env`
+4. (Author's machine only) legacy vision skill `.env` /（仅作者本机）旧版 vision skill 的 `.env` 回退：`C:\Users\lautung\.codex\skills\vision\scripts\.env`
+
+Create `scripts/.env` with your own key / 如需使用自己的 Key，在 `scripts/.env` 中写入：
+
+```ini
+DASHSCOPE_API_KEY=sk-...
+VISION_MODEL=qwen-vl-plus
+DASHSCOPE_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
+```
+
+Get a key at / 获取 Key：https://bailian.console.aliyun.com/
+
+## Cost & Privacy / 计费与隐私
+
+- 按量计费（千问 Flash 约 0.02 元/次），需要联网 / Pay-per-use (~0.02 CNY/call), network required
+- 图片以 base64 或 URL 形式发送给 DashScope；API Key 只保存在本地，禁止打印或提交 / Images are sent to DashScope as base64 or URL; the API key stays local, never print or commit it

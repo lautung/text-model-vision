@@ -1,0 +1,14 @@
+# Secrets - never commit API keys
+.env
+**/.env
+
+# Node.js
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editors / IDE
+.idea/
+.vscode/

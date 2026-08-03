@@ -1,0 +1,21 @@
+{
+  "name": "text-model-vision",
+  "version": "0.1.0",
+  "description": "为非多模态模型（如 DeepSeek）提供看图能力：通过本地脚本调用千问视觉 API，把图片转成文字描述。",
+  "author": {
+    "name": "Local developer"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Text Model Vision",
+    "shortDescription": "让纯文本模型也能看图、描述与分析图片。",
+    "longDescription": "为非多模态模型（如 DeepSeek）补上看图能力：收到本地图片或网络图片链接时，调用插件内 scripts/vision.js，通过千问视觉 API（DashScope，OpenAI 兼容接口）返回文字描述。密钥按 进程环境变量 → 插件 scripts/.env 的顺序读取（作者本机还会回退到旧版 vision skill 的 .env），按量计费，密钥不随插件分发。",
+    "developerName": "Local developer",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": [
+      "描述这张图片。",
+      "分析这张图片的内容。"
+    ]
+  }
+}

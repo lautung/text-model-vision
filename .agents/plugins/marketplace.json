@@ -1,0 +1,20 @@
+{
+  "name": "text-model-vision",
+  "interface": {
+    "displayName": "Text Model Vision"
+  },
+  "plugins": [
+    {
+      "name": "text-model-vision",
+      "source": {
+        "source": "local",
+        "path": "./plugins/text-model-vision"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
