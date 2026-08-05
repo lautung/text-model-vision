@@ -2,7 +2,7 @@
 
 [English](README.en.md) | 中文
 
-为非多模态模型（如 DeepSeek）提供看图能力的 Codex 插件：通过千问视觉 API（DashScope，OpenAI 兼容接口）把图片转成文字描述。
+为非多模态模型（如 DeepSeek）提供看图能力的 Codex / ZCode 插件：通过千问视觉 API（DashScope，OpenAI 兼容接口）把图片转成文字描述。
 
 ## 功能
 
@@ -28,6 +28,14 @@ codex plugin add text-model-vision@text-model-vision
 codex plugin marketplace add C:\Users\lautung\Documents\text-model-vision
 codex plugin add text-model-vision@text-model-vision
 ```
+
+在 ZCode 中安装：
+
+1. 打开 **设置 → 插件管理 → 发现** 页签，点击 **+** 添加市场
+2. 填入 GitHub 仓库 `lautung/text-model-vision`（或本机仓库路径）
+3. 在发现列表中找到 **text-model-vision**，点击安装（默认已启用）
+
+然后新开一个会话，让 ZCode 加载新技能。
 
 ## 配置
 
@@ -62,14 +70,16 @@ setx DASHSCOPE_API_KEY "sk-..."
 powershell -ExecutionPolicy Bypass -File "plugins\text-model-vision\scripts\set-env.ps1" -ApiKey "sk-..."
 ```
 
-`setx` 之后请重启 Codex 或新开终端使其生效。
+`setx` 之后请重启 Codex / ZCode 或新开终端使其生效。
+
+> ZCode 注意：插件安装在缓存目录（如 `~/.zcode/cli/plugins/cache/...`），插件更新时会重新拉取该目录，`scripts/.env` 会被重置——ZCode 下建议优先用环境变量配置密钥，`.env` 方式主要用于 Codex 或临时调试。
 
 读取顺序：进程环境变量 → 当前目录 `.env` → `scripts/.env` →（仅作者本机，若存在）旧版 vision skill 的 `.env`。
 获取 Key：https://bailian.console.aliyun.com/
 
 ## 使用
 
-在 Codex 中把图片发给纯文本模型即可，技能会自动触发；也可以直接调用脚本：
+在 Codex / ZCode 中把图片发给纯文本模型即可，技能会自动触发；也可以直接调用脚本：
 
 ```powershell
 node "plugins\text-model-vision\scripts\vision.js" "<图片路径>" "用中文描述这张图片"
@@ -86,14 +96,18 @@ node "plugins\text-model-vision\scripts\vision.js" --url "<图片链接>" "用�
 
 ```
 .
-├── .agents/plugins/marketplace.json   # Codex 仓库市场
-├── plugins/text-model-vision/         # 插件本体
-│   ├── .codex-plugin/plugin.json
+├── marketplace.json                    # ZCode 仓库市场
+├── .agents/plugins/marketplace.json    # Codex 仓库市场
+├── plugins/text-model-vision/          # 插件本体
+│   ├── .codex-plugin/plugin.json       # Codex 插件清单
+│   ├── .zcode-plugin/plugin.json       # ZCode 插件清单
 │   ├── scripts/vision.js
 │   └── skills/text-model-vision/SKILL.md
-├── README.md                          # 中文说明
-└── README.en.md                       # English
+├── README.md                           # 中文说明
+└── README.en.md                        # English
 ```
+
+> 维护注意：`.codex-plugin/plugin.json` 与 `.zcode-plugin/plugin.json` 的 `name` / `version` / `description` 需保持一致。
 
 ## 开发
 

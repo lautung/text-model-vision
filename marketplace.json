@@ -1,0 +1,34 @@
+{
+  "name": "text-model-vision",
+  "description": "为非多模态模型提供看图能力的插件市场：通过千问视觉 API（DashScope）把图片转成文字描述。",
+  "description_i18n": {
+    "en": "Plugin marketplace that gives non-multimodal models vision: turns images into text descriptions via the Qwen vision API (DashScope).",
+    "zh-CN": "为非多模态模型提供看图能力的插件市场：通过千问视觉 API（DashScope）把图片转成文字描述。"
+  },
+  "owner": {
+    "name": "Local developer"
+  },
+  "plugins": [
+    {
+      "name": "text-model-vision",
+      "source": "./plugins/text-model-vision",
+      "description": "为非多模态模型（如 DeepSeek）提供看图能力：通过本地脚本调用千问视觉 API（DashScope，OpenAI 兼容接口），把图片转成文字描述。",
+      "description_i18n": {
+        "en": "Gives non-multimodal models (e.g. DeepSeek) the ability to see images: a local script calls the Qwen vision API (DashScope, OpenAI-compatible) and returns a text description.",
+        "zh-CN": "为非多模态模型（如 DeepSeek）提供看图能力：通过本地脚本调用千问视觉 API（DashScope，OpenAI 兼容接口），把图片转成文字描述。"
+      },
+      "version": "0.3.0",
+      "author": {
+        "name": "Local developer"
+      },
+      "category": "productivity",
+      "keywords": [
+        "vision",
+        "image",
+        "qwen",
+        "dashscope",
+        "multimodal"
+      ]
+    }
+  ]
+}

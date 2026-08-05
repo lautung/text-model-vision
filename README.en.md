@@ -2,7 +2,7 @@
 
 English | [中文](README.md)
 
-A Codex plugin that gives text-only models (e.g. DeepSeek) image understanding through the Qwen Vision API (DashScope, OpenAI-compatible).
+A Codex / ZCode plugin that gives text-only models (e.g. DeepSeek) image understanding through the Qwen Vision API (DashScope, OpenAI-compatible).
 
 ## Features
 
@@ -28,6 +28,14 @@ For local development (when the repo is already cloned locally):
 codex plugin marketplace add C:\Users\lautung\Documents\text-model-vision
 codex plugin add text-model-vision@text-model-vision
 ```
+
+To install in ZCode:
+
+1. Open **Settings → Plugin Management → Discover**, click **+** to add a marketplace
+2. Enter the GitHub repo `lautung/text-model-vision` (or a local repo path)
+3. Find **text-model-vision** in the list and install it (enabled by default)
+
+Then start a new session so ZCode loads the new skill.
 
 ## Configure
 
@@ -62,14 +70,16 @@ setx DASHSCOPE_API_KEY "sk-..."
 powershell -ExecutionPolicy Bypass -File "plugins\text-model-vision\scripts\set-env.ps1" -ApiKey "sk-..."
 ```
 
-After `setx`, restart Codex or open a new terminal so the variable takes effect.
+After `setx`, restart Codex / ZCode or open a new terminal so the variable takes effect.
+
+> ZCode note: the plugin is installed into a cache directory (e.g. `~/.zcode/cli/plugins/cache/...`) that is re-fetched on plugin updates, which resets `scripts/.env`. On ZCode, prefer the environment variable; `.env` is mainly for Codex or quick local debugging.
 
 Read order: process env → cwd `.env` → `scripts/.env` → (author's machine only, if present) legacy vision skill `.env`.
 Get a key at: https://bailian.console.aliyun.com/
 
 ## Usage
 
-Send an image to a text-only model in Codex and the skill triggers automatically. You can also call the script directly:
+Send an image to a text-only model in Codex / ZCode and the skill triggers automatically. You can also call the script directly:
 
 ```powershell
 node "plugins\text-model-vision\scripts\vision.js" "<image path>" "Describe this image in Chinese."
@@ -86,14 +96,18 @@ node "plugins\text-model-vision\scripts\vision.js" --url "<image URL>" "Describe
 
 ```
 .
-├── .agents/plugins/marketplace.json   # Codex repo marketplace
-├── plugins/text-model-vision/         # the plugin itself
-│   ├── .codex-plugin/plugin.json
+├── marketplace.json                    # ZCode repo marketplace
+├── .agents/plugins/marketplace.json    # Codex repo marketplace
+├── plugins/text-model-vision/          # the plugin itself
+│   ├── .codex-plugin/plugin.json       # Codex plugin manifest
+│   ├── .zcode-plugin/plugin.json       # ZCode plugin manifest
 │   ├── scripts/vision.js
 │   └── skills/text-model-vision/SKILL.md
-├── README.md                          # 中文说明
-└── README.en.md                       # English
+├── README.md                           # 中文说明
+└── README.en.md                        # English
 ```
+
+> Maintenance note: keep `name` / `version` / `description` in sync between `.codex-plugin/plugin.json` and `.zcode-plugin/plugin.json`.
 
 ## Development
 

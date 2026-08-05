@@ -5,7 +5,7 @@
   powershell -ExecutionPolicy Bypass -File .\scripts\set-env.ps1 -ApiKey sk-xxxx
   或直接运行后按提示输入。
 
-设置后请重启 Codex / 新开终端，使环境变量生效。
+设置后请重启 Codex / ZCode 或新开终端，使环境变量生效。
 #>
 param(
     [string]$ApiKey
@@ -22,4 +22,4 @@ if ([string]::IsNullOrWhiteSpace($ApiKey)) {
 
 [Environment]::SetEnvironmentVariable("DASHSCOPE_API_KEY", $ApiKey, "User")
 Write-Host "已设置用户级环境变量 DASHSCOPE_API_KEY。"
-Write-Host "请重启 Codex 或新开终端，使环境变量生效。"
+Write-Host "请重启 Codex / ZCode 或新开终端，使环境变量生效。"
